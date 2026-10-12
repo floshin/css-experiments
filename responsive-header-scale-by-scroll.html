@@ -17,7 +17,58 @@
     font-size: 22px;
     font-family: Helvetica, sans-serif;
   }
+
+  /* 1. Define keyframes for the starting (scrolled up) and ending (scrolled down) states */
+@keyframes shrink-header {
+  from {
+    padding-block: 2.5rem;
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid transparent;
+  }
+  to {
+    padding-block: 0.75rem;
+    background-color: rgba(245, 245, 245, 0.95);
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@keyframes shrink-font {
+  from {
+    font-size: 2.5rem;
+  }
+  to {
+    font-size: 1.25rem;
+  }
+}
+
+/* 2. Apply sticky positioning and link animations to the scroll timeline */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
+  /* Link to root scroll timeline */
+  animation: shrink-header linear both;
+  animation-timeline: scroll(root);
+  /* The animation progresses between 0px and 200px of scrolling */
+  animation-range: 0px 200px; 
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  
+  /* Link font scaling to the same timeline */
+  animation: shrink-font linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 200px;
+}
+  
+/*  
   header {
     height: 100px;
     background: #0d0d0d;
@@ -35,7 +86,8 @@
       position: sticky; 
       top: 0;
     }
-
+*/
+  
   main {
     padding: 20px;
   }
