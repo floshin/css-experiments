@@ -19,12 +19,20 @@
   }
   
   header {
-    font-size: 3vh;
     height: 100px;
     background: #0d0d0d;
     color: #ddd;
     padding: 20px;
+    position: fixed;
+    top: 10px;
+    display: flex;
+    align-items: center;
   }
+    header h1 {
+      font-size: 3vh;
+      position: sticky; 
+      top: 0;
+    }
 
   main {
     padding: 20px;
@@ -35,7 +43,7 @@
 <html>
     <body>
         <header>
-          Aut libero et nesciunt  
+          <h1>Aut libero et nesciunt</h1> 
         </header>
         <main>
            <p>Aut libero et nesciunt consequatur repellat. Aliquid suscipit est magni vero corporis repellendus aut. Dignissimos nesciunt error id adipisci a. A sit non nihil. Nisi rerum nobis quisquam in.</p>
